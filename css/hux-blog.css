@@ -1694,3 +1694,28 @@ img::-moz-selection {
 .no-scroll {
   overflow-y: hidden;
 }
+
+/* Language Selector Styles */
+.language-selector {
+  margin-left: 10px;
+}
+
+.sel-lang {
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+  font-size: 12px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.sel-lang:hover {
+  border-color: #0085a1;
+}
+
+.sel-lang:focus {
+  outline: none;
+  border-color: #0085a1;
+  box-shadow: 0 0 0 2px rgba(0, 133, 161, 0.2);
+}
