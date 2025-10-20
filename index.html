@@ -1,46 +1,116 @@
 ---
 layout: page
 description: "「离开世界之前 一切都是过程」"
+multilingual: true
 ---
 
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
-            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
+{% include multilingual-sel.html %}
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+    <div class="post-preview">
+        <h1 class="post-title">欢迎来到我的博客</h1>
+        <h3 class="post-subtitle">Welcome to My Blog</h3>
         <div class="post-content-preview">
-            {% if post.lang == 'en' %}
-                {{ post.content | strip_html | truncate:300 }}
-            {% else %}
-                {{ post.content | strip_html | truncate:200 }}
-            {% endif %}
+            这里是我分享技术心得和生活感悟的地方。我会记录学习笔记、项目经验，以及对新技术趋势的思考。
         </div>
-    </a>
-    <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
-    </p>
+    </div>
+    <hr>
 </div>
-<hr>
-{% endfor %}
+
+<!-- English Version -->
+<div class="en post-container">
+    <div class="post-preview">
+        <h1 class="post-title">Welcome to My Blog</h1>
+        <h3 class="post-subtitle">欢迎来到我的博客</h3>
+        <div class="post-content-preview">
+            This is where I share my technical insights and life reflections. I'll record learning notes, project experiences, and thoughts on new technology trends.
+        </div>
+    </div>
+    <hr>
+</div>
+
+<!-- Chinese Version -->
+<div class="zh">
+    {% for post in paginator.posts %}
+    <div class="post-preview">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+            <h2 class="post-title">
+                {{ post.title }}
+            </h2>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">
+                {{ post.subtitle }}
+            </h3>
+            {% endif %}
+            <div class="post-content-preview">
+                {{ post.content | strip_html | truncate:200 }}
+            </div>
+        </a>
+        <p class="post-meta">
+            由 {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} 发布于 {{ post.date | date: "%Y年%-m月%-d日" }}
+        </p>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+
+<!-- English Version -->
+<div class="en">
+    {% for post in paginator.posts %}
+    <div class="post-preview">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+            <h2 class="post-title">
+                {{ post.title }}
+            </h2>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">
+                {{ post.subtitle }}
+            </h3>
+            {% endif %}
+            <div class="post-content-preview">
+                {{ post.content | strip_html | truncate:300 }}
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        </p>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
 
 <!-- Pager -->
 {% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
-</ul>
+<!-- Chinese Version -->
+<div class="zh">
+    <ul class="pager">
+        {% if paginator.previous_page %}
+        <li class="previous">
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; 更新的文章</a>
+        </li>
+        {% endif %}
+        {% if paginator.next_page %}
+        <li class="next">
+            <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">更早的文章 &rarr;</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+
+<!-- English Version -->
+<div class="en">
+    <ul class="pager">
+        {% if paginator.previous_page %}
+        <li class="previous">
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+        </li>
+        {% endif %}
+        {% if paginator.next_page %}
+        <li class="next">
+            <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
 {% endif %}

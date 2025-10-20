@@ -217,9 +217,36 @@
 
 
 <!-- Multi-Lingual -->
-{% if page.multilingual %}
 <!-- Handle Language Change -->
 <script type="text/javascript">
+    // Global language change function
+    function onLanChange(index) {
+        var lang = index == 0 ? "zh" : "en";
+        var params = new URLSearchParams(document.location.search);
+        params.set("lang", lang);
+        document.location.search = params.toString();
+    }
+
+    // Initialize navigation language selector
+    function initNavLanguageSelector() {
+        var navSelect = document.querySelector('.navbar .sel-lang');
+        if (navSelect) {
+            var currentLang = new URLSearchParams(document.location.search).get("lang");
+            if (currentLang === "en") {
+                navSelect.selectedIndex = 1;
+            } else {
+                navSelect.selectedIndex = 0;
+            }
+        }
+    }
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        initNavLanguageSelector();
+    });
+
+    // Handle multilingual pages (About page, etc.)
+    {% if page.multilingual %}
     // get nodes
     var $zh = document.querySelector(".zh");
     var $en = document.querySelector(".en");
@@ -256,20 +283,10 @@
         generateCatalog(".catalog-body");
     }
 
-    // handle select change
-    function onLanChange(index) {
-        if (index == 0) {
-            lang = "zh"
-        } else {
-            lang = "en"
-        }
-        setLang(lang)
-    }
-
     // init
     _render();
+    {% endif %}
 </script>
-{% endif %}
 
 <!-- Simple Jekyll Search -->
 <script>
