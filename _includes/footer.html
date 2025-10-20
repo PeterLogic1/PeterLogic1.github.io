@@ -219,30 +219,31 @@
 <!-- Multi-Lingual -->
 <!-- Handle Language Change -->
 <script type="text/javascript">
-    // Global language change function
-    function onLanChange(index) {
-        var lang = index == 0 ? "zh" : "en";
+    // Global language toggle function
+    function toggleLanguage() {
+        var currentLang = new URLSearchParams(document.location.search).get("lang");
+        var newLang = currentLang === "en" ? "zh" : "en";
         var params = new URLSearchParams(document.location.search);
-        params.set("lang", lang);
+        params.set("lang", newLang);
         document.location.search = params.toString();
     }
 
-    // Initialize navigation language selector
-    function initNavLanguageSelector() {
-        var navSelect = document.querySelector('.navbar .sel-lang');
-        if (navSelect) {
+    // Initialize navigation language button
+    function initNavLanguageButton() {
+        var langButton = document.querySelector('.navbar .lang-toggle .lang-text');
+        if (langButton) {
             var currentLang = new URLSearchParams(document.location.search).get("lang");
             if (currentLang === "en") {
-                navSelect.selectedIndex = 1;
+                langButton.textContent = "English";
             } else {
-                navSelect.selectedIndex = 0;
+                langButton.textContent = "简体中文";
             }
         }
     }
 
     // Initialize when DOM is ready
     document.addEventListener('DOMContentLoaded', function() {
-        initNavLanguageSelector();
+        initNavLanguageButton();
     });
 
     // Handle multilingual pages (About page, etc.)
@@ -266,18 +267,26 @@
         var lang = getLang()
         // en
         if (lang == "en") {
-            $select.selectedIndex = 1;
             $en.style.display = "block";
             $en.classList.add("active");
             $zh.style.display = "none";
             $zh.classList.remove("active");
+            // Update language button text
+            var langButton = document.querySelector('.navbar .lang-toggle .lang-text');
+            if (langButton) {
+                langButton.textContent = "English";
+            }
             // default to zh-cn
         } else {
-            $select.selectedIndex = 0;
             $zh.style.display = "block";
             $zh.classList.add("active");
             $en.style.display = "none";
             $en.classList.remove("active");
+            // Update language button text
+            var langButton = document.querySelector('.navbar .lang-toggle .lang-text');
+            if (langButton) {
+                langButton.textContent = "简体中文";
+            }
         }
         // interop with catalog 
         generateCatalog(".catalog-body");

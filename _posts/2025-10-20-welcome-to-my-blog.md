@@ -2,7 +2,7 @@
 layout: post
 title: "欢迎来到我的博客"
 subtitle: "Welcome to My Blog"
-date: 2024-01-01 12:00:00
+date: 2025-10-20 12:00:00
 author: "Peter Logic"
 header-img: "img/home-bg.jpg"
 header-mask: 0.3

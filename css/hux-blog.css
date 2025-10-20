@@ -1695,60 +1695,49 @@ img::-moz-selection {
   overflow-y: hidden;
 }
 
-/* Language Selector Styles */
+/* Language Toggle Button Styles */
 .language-selector {
   margin-left: 15px;
   display: flex;
   align-items: center;
 }
 
-.sel-lang {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
-  color: #fff;
-  font-size: 12px;
-  padding: 4px 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.lang-toggle {
+  color: #fff !important;
+  font-size: 14px;
   font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
 }
 
-.sel-lang:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-1px);
+.lang-toggle:hover {
+  color: #0085a1 !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
 }
 
-.sel-lang:focus {
+.lang-toggle:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
-}
-
-.sel-lang option {
-  background: #333;
-  color: #fff;
-  padding: 8px;
+  color: #0085a1 !important;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Invert style for light backgrounds */
-.navbar-custom.invert .sel-lang {
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  color: #333;
+.navbar-custom.invert .lang-toggle {
+  color: #333 !important;
 }
 
-.navbar-custom.invert .sel-lang:hover {
-  background: rgba(0, 0, 0, 0.2);
-  border-color: rgba(0, 0, 0, 0.5);
+.navbar-custom.invert .lang-toggle:hover {
+  color: #0085a1 !important;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-.navbar-custom.invert .sel-lang:focus {
-  background: rgba(0, 0, 0, 0.2);
-  border-color: rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+.navbar-custom.invert .lang-toggle:focus {
+  color: #0085a1 !important;
+  background-color: rgba(0, 0, 0, 0.1);
 }
