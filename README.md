@@ -1,63 +1,72 @@
-[Hux Blog](https://huangxuan.me)
-================================
+# Peter Logic Blog
 
-> I never expected this to become popular.
+> 一个基于 Jekyll 的个人博客网站
 
-![](http://huangxuan.me/img/blog-desktop.jpg)
+这是我的个人博客，基于 Jekyll 构建，使用 Hux Blog 主题。
 
+## 网站地址
 
-[User Manual 👉](_doc/Manual.md)
---------------------------------------------------
+🌐 [PeterLogic1.github.io](https://PeterLogic1.github.io)
 
-### Getting Started
+## 技术栈
 
-1. You will need [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/) to use [Jekyll](https://jekyllrb.com/). Following [Using Jekyll with Bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/) to fullfill the enviromental requirement.
+- **Jekyll** - 静态网站生成器
+- **Bootstrap** - 前端框架
+- **GitHub Pages** - 网站托管
 
-2. Installed dependencies in the `Gemfile`:
+## 本地开发
 
-```sh
-$ bundle install 
+### 环境要求
+
+1. 安装 [Ruby](https://www.ruby-lang.org/en/)
+2. 安装 [Bundler](https://bundler.io/)
+
+### 运行步骤
+
+1. 克隆仓库：
+```bash
+git clone https://github.com/PeterLogic1/PeterLogic1.github.io.git
+cd PeterLogic1.github.io
 ```
 
-3. Serve the website (`localhost:4000` by default):
-
-```sh
-$ bundle exec jekyll serve  # alternatively, npm start
+2. 安装依赖：
+```bash
+bundle install
 ```
 
-### Development (Build From Source)
+3. 启动本地服务器：
+```bash
+bundle exec jekyll serve
+```
 
-To modify the theme, you will need [Grunt](https://gruntjs.com/). There are numbers of tasks you can find in the `Gruntfile.js`, includes minifing JavaScript, compiling `.less` to `.css`, adding banners to keep the Apache 2.0 license intact, watching for changes, etc. 
+4. 访问 `http://localhost:4000` 查看网站
 
-Yes, they were inherited and are extremely old-fashioned. There is no modularization and transpilation, etc.
+## 项目结构
 
-Critical Jekyll-related code are located in `_include/` and `_layouts/`. Most of them are [Liquid](https://github.com/Shopify/liquid/wiki) templates.
+```
+├── _config.yml          # Jekyll 配置文件
+├── _includes/           # 可重用的模板片段
+├── _layouts/            # 页面布局模板
+├── _posts/              # 博客文章
+├── css/                 # 样式文件
+├── js/                  # JavaScript 文件
+├── img/                 # 图片资源
+└── about.html           # 关于页面
+```
 
-This theme uses the default code syntax highlighter of jekyll, [Rouge](http://rouge.jneen.net/), which is compatible with Pygments theme so just pick any pygments theme css (e.g. from [here](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) and replace the content of `highlight.less`.
+## 自定义配置
 
+主要配置文件是 `_config.yml`，你可以修改：
 
-### Interesting to know more? Checkout the [full user manual](_doc/Manual.md)!
+- 网站标题和描述
+- 个人信息和联系方式
+- 社交网络链接
+- 主题设置
 
+## 许可证
 
-Other Resources
----------------
+Apache License 2.0
 
-Ports
-- [**Hexo**](https://github.com/Kaijun/hexo-theme-huxblog) by @kaijun
-- [**React-SSR**](https://github.com/LucasIcarus/huxpro.github.io/tree/ssr) by @LucasIcarus
+## 致谢
 
-[Starter/Boilerplate](https://github.com/huxpro/huxblog-boilerplate)
-- Out of date. Helps wanted for updating it on par with the main repo
-
-Translation
-- [🇨🇳  中文文档（有点过时）](https://github.com/Huxpro/huxpro.github.io/blob/master/_doc/README.zh.md)
-
-
-License
--------
-
-Apache License 2.0.
-Copyright (c) 2015-present Huxpro
-
-Hux Blog is derived from [Clean Blog Jekyll Theme (MIT License)](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/)
-Copyright (c) 2013-2016 Blackrock Digital LLC.
+感谢 [Hux](https://github.com/Huxpro) 提供的优秀 Jekyll 主题！
