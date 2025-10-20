@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .favicon-preview { display: inline-block; margin: 10px; }
+        canvas { border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Favicon Generator for Peter Logic Blog</h1>
+    
+    <div class="favicon-preview">
+        <h3>Option 1: Letter P</h3>
+        <canvas id="favicon1" width="32" height="32"></canvas>
+        <br><button onclick="downloadFavicon('favicon1', 'favicon-p.ico')">Download</button>
+    </div>
+    
+    <div class="favicon-preview">
+        <h3>Option 2: PL</h3>
+        <canvas id="favicon2" width="32" height="32"></canvas>
+        <br><button onclick="downloadFavicon('favicon2', 'favicon-pl.ico')">Download</button>
+    </div>
+    
+    <div class="favicon-preview">
+        <h3>Option 3: Code Symbol</h3>
+        <canvas id="favicon3" width="32" height="32"></canvas>
+        <br><button onclick="downloadFavicon('favicon3', 'favicon-code.ico')">Download</button>
+    </div>
+
+    <script>
+        // Create favicon 1: Letter P
+        function createFavicon1() {
+            const canvas = document.getElementById('favicon1');
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#0085a1';
+            ctx.fillRect(0, 0, 32, 32);
+            
+            // Letter P
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 20px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('P', 16, 16);
+        }
+        
+        // Create favicon 2: PL
+        function createFavicon2() {
+            const canvas = document.getElementById('favicon2');
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#0085a1';
+            ctx.fillRect(0, 0, 32, 32);
+            
+            // Letters PL
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 14px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('PL', 16, 16);
+        }
+        
+        // Create favicon 3: Code Symbol
+        function createFavicon3() {
+            const canvas = document.getElementById('favicon3');
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#0085a1';
+            ctx.fillRect(0, 0, 32, 32);
+            
+            // Code brackets
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 12px monospace';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('</>', 16, 16);
+        }
+        
+        // Download function
+        function downloadFavicon(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Initialize
+        createFavicon1();
+        createFavicon2();
+        createFavicon3();
+    </script>
+</body>
+</html>
